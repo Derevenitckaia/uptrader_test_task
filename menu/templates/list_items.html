@@ -1,0 +1,18 @@
+{% load menu_tags %}
+
+
+
+
+<ul>
+{% for child in childrens %}
+
+    <li> <a href="{% url 'show_item' child.id %}"> {{ child }} </a> </li>
+
+    {% if child.id in ancestor_active_item_ids %}
+
+        {% draw_items child.id %}
+
+    {% endif %}
+
+{% endfor %}
+</ul>

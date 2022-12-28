@@ -1,0 +1,22 @@
+{% load menu_tags %}
+
+
+<h1>{{menu_name}}</h1>
+
+<ul>
+
+{% for item in items %}
+
+    <li> <a href="{% url 'show_item' item.id %}"> {{ item }} </a> </li>
+
+    {% if item.id in ancestor_active_item_ids %}
+
+        {% draw_items item.id %}
+
+    {% endif %}
+
+
+{% endfor %}
+
+
+</ul>
